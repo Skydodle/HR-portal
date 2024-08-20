@@ -1,0 +1,1 @@
+//Define the data structure here using interface
