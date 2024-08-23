@@ -7,7 +7,7 @@ import { User } from '../interfaces/login-state.interface';
   providedIn: 'root',
 })
 export class LoginService {
-  private apiUrl = 'http://localhost:3000/api/auth/login';
+  private apiUrl = 'http://localhost:3000/api/auth/HRlogin';
 
   constructor(private http: HttpClient) {}
 
