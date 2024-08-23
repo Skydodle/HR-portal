@@ -1,0 +1,44 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+}
+
+.form-field {
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+.login-actions {
+  margin-top: 16px;
+}
+
+.error-message {
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.full-width-button {
+  width: 100%;
+}
+
+.mat-card-title {
+  text-align: center;
+  font-weight: 300;
+  margin: 25px auto;
+}
+
+.success-message {
+  margin: 25px auto;
+  text-align: center;
+}
