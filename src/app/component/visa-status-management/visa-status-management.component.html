@@ -1,1 +1,18 @@
-<p>visa-status-management works!</p>
+<div class="visa-status-page">
+    <div class="in-progress-section">
+        <h2>In Progress</h2>
+        <app-in-process  
+            *ngFor="let employee of inProgressEmployees"
+            [employee]="employee">
+        </app-in-process>
+    </div>
+        
+    <div class="all-employees-section">
+        <h2>All Employees</h2>
+        <app-all-employees
+            *ngFor="let employee of allEmployees"
+            [employee]="employee">
+        </app-all-employees>
+    </div>
+
+</div>

@@ -1,0 +1,8 @@
+<div>
+    <p>Name: {{employee.firstName}} {{employee.lastName}}</p>
+    <p>Visa: {{employee.citizenship.visaStatus}}</p>
+    <p>Start Date: {{ employee.citizenship.startDate | date:'yyyy-MM-dd' }}</p>
+    <p>End Date: {{ employee.citizenship.endDate | date:'yyyy-MM-dd' }}</p>
+    <!-- <p>Days Remaining: {{ calculateDaysRemaining(employee.citizenship.endDate) }}</p> -->
+    
+</div>

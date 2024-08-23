@@ -11,12 +11,13 @@ import { NavbarComponent } from './component/navbar/navbar.component';
 import { EmployeeProfilesComponent } from './component/employee-profiles/employee-profiles.component';
 import { EmployeeProfileDetailComponent } from './component/employee-profile-detail/employee-profile-detail.component';
 import { VisaStatusManagementComponent } from './component/visa-status-management/visa-status-management.component';
-import { VisaStatusDetailComponent } from './component/visa-status-detail/visa-status-detail.component';
 import { HiringManagementComponent } from './component/hiring-management/hiring-management.component';
 import { OnboardingApplicationComponent } from './component/onboarding-application/onboarding-application.component';
 import { HousingManagementComponent } from './component/housing-management/housing-management.component';
 import { HousingDetailComponent } from './component/housing-detail/housing-detail.component';
-
+import {HttpClientModule} from '@angular/common/http';
+import { InProcessComponent } from './component/in-process/in-process.component';
+import { AllEmployeesComponent } from './component/all-employees/all-employees.component'
 
 @NgModule({
   declarations: [
@@ -26,18 +27,19 @@ import { HousingDetailComponent } from './component/housing-detail/housing-detai
     EmployeeProfilesComponent,
     EmployeeProfileDetailComponent,
     VisaStatusManagementComponent,
-    VisaStatusDetailComponent,
     HiringManagementComponent,
     OnboardingApplicationComponent,
     HousingManagementComponent,
-    HousingDetailComponent
+    HousingDetailComponent,
+    InProcessComponent,
+    AllEmployeesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     StoreModule.forRoot({}, {}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-   
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
