@@ -17,6 +17,15 @@ import { OnboardingApplicationComponent } from './component/onboarding-applicati
 import { HousingManagementComponent } from './component/housing-management/housing-management.component';
 import { HousingDetailComponent } from './component/housing-detail/housing-detail.component';
 
+import { EffectsModule } from '@ngrx/effects';
+import { LoginEffects } from './store/login/login.effects';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { loginReducer } from './store/login/login.reducer';
+import { LoginTestComponent } from './loginTest.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,19 +39,33 @@ import { HousingDetailComponent } from './component/housing-detail/housing-detai
     HiringManagementComponent,
     OnboardingApplicationComponent,
     HousingManagementComponent,
-    HousingDetailComponent
+    HousingDetailComponent,
+    LoginTestComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({}, {}),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-   
+    ReactiveFormsModule,
+    StoreModule.forRoot({ login: loginReducer }), // store module for ngrx
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production,
+    }),
+    EffectsModule.forRoot([LoginEffects]), // effects module
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MaterialModule, // import material module
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
 
 // purpose for each component
 // 1. Login Component
@@ -74,4 +97,3 @@ export class AppModule { }
 
 // 10. Housing Detail Component
 // Purpose: Display detailed information about a house, including facility and resident details.
-
