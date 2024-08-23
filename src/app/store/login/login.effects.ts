@@ -21,9 +21,15 @@ export class LoginEffects {
               // also store token and user info in ngrx state
               return LoginActions.loginSuccess({ user, token });
             }),
-            catchError((error) =>
-              of(LoginActions.loginFailure({ error: error.message }))
-            )
+            catchError((error) => {
+              let errorMessage = 'An unknown error occurred';
+              if (error.error && error.error.message) {
+                errorMessage = error.error.message; // Extracting the specific error message from the response
+              } else if (error.message) {
+                errorMessage = error.message;
+              }
+              return of(LoginActions.loginFailure({ error: errorMessage }));
+            })
           )
       )
     )
