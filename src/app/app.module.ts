@@ -22,6 +22,10 @@ import { LoginEffects } from './store/login/login.effects';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { loginReducer } from './store/login/login.reducer';
+import { LoginTestComponent } from './loginTest.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -36,17 +40,21 @@ import { loginReducer } from './store/login/login.reducer';
     OnboardingApplicationComponent,
     HousingManagementComponent,
     HousingDetailComponent,
+    LoginTestComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({ login: loginReducer }),
+    ReactiveFormsModule,
+    StoreModule.forRoot({ login: loginReducer }), // store module for ngrx
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,
     }),
-    EffectsModule.forRoot([LoginEffects]),
+    EffectsModule.forRoot([LoginEffects]), // effects module
     HttpClientModule,
+    BrowserAnimationsModule,
+    MaterialModule, // import material module
   ],
   providers: [
     {
