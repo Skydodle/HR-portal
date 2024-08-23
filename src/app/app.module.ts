@@ -15,9 +15,22 @@ import { HiringManagementComponent } from './component/hiring-management/hiring-
 import { OnboardingApplicationComponent } from './component/onboarding-application/onboarding-application.component';
 import { HousingManagementComponent } from './component/housing-management/housing-management.component';
 import { HousingDetailComponent } from './component/housing-detail/housing-detail.component';
+<<<<<<< HEAD
 import {HttpClientModule} from '@angular/common/http';
 import { InProcessComponent } from './component/in-process/in-process.component';
 import { AllEmployeesComponent } from './component/all-employees/all-employees.component'
+=======
+
+import { EffectsModule } from '@ngrx/effects';
+import { LoginEffects } from './store/login/login.effects';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { loginReducer } from './store/login/login.reducer';
+import { LoginTestComponent } from './loginTest.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material.module';
+import { ReactiveFormsModule } from '@angular/forms';
+>>>>>>> 55bdb40f68c494643896d2d6eb9e89c47221853d
 
 @NgModule({
   declarations: [
@@ -31,20 +44,43 @@ import { AllEmployeesComponent } from './component/all-employees/all-employees.c
     OnboardingApplicationComponent,
     HousingManagementComponent,
     HousingDetailComponent,
+<<<<<<< HEAD
     InProcessComponent,
     AllEmployeesComponent
+=======
+    LoginTestComponent,
+>>>>>>> 55bdb40f68c494643896d2d6eb9e89c47221853d
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+<<<<<<< HEAD
     StoreModule.forRoot({}, {}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     HttpClientModule
+=======
+    ReactiveFormsModule,
+    StoreModule.forRoot({ login: loginReducer }), // store module for ngrx
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production,
+    }),
+    EffectsModule.forRoot([LoginEffects]), // effects module
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MaterialModule, // import material module
+>>>>>>> 55bdb40f68c494643896d2d6eb9e89c47221853d
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
 
 // purpose for each component
 // 1. Login Component
@@ -76,4 +112,3 @@ export class AppModule { }
 
 // 10. Housing Detail Component
 // Purpose: Display detailed information about a house, including facility and resident details.
-
