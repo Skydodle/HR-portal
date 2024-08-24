@@ -11,12 +11,12 @@ import { NavbarComponent } from './component/navbar/navbar.component';
 import { EmployeeProfilesComponent } from './component/employee-profiles/employee-profiles.component';
 import { EmployeeProfileDetailComponent } from './component/employee-profile-detail/employee-profile-detail.component';
 import { VisaStatusManagementComponent } from './component/visa-status-management/visa-status-management.component';
-import { VisaStatusDetailComponent } from './component/visa-status-detail/visa-status-detail.component';
 import { HiringManagementComponent } from './component/hiring-management/hiring-management.component';
 import { OnboardingApplicationComponent } from './component/onboarding-application/onboarding-application.component';
 import { HousingManagementComponent } from './component/housing-management/housing-management.component';
 import { HousingDetailComponent } from './component/housing-detail/housing-detail.component';
-
+import { InProcessComponent } from './component/in-process/in-process.component';
+import { AllEmployeesComponent } from './component/all-employees/all-employees.component'
 import { EffectsModule } from '@ngrx/effects';
 import { LoginEffects } from './store/login/login.effects';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -25,7 +25,8 @@ import { loginReducer } from './store/login/login.reducer';
 import { LoginTestComponent } from './loginTest.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -35,16 +36,20 @@ import { ReactiveFormsModule } from '@angular/forms';
     EmployeeProfilesComponent,
     EmployeeProfileDetailComponent,
     VisaStatusManagementComponent,
-    VisaStatusDetailComponent,
     HiringManagementComponent,
     OnboardingApplicationComponent,
     HousingManagementComponent,
     HousingDetailComponent,
+    InProcessComponent,
+    AllEmployeesComponent,
     LoginTestComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    StoreModule.forRoot({}, {}),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    HttpClientModule,
     ReactiveFormsModule,
     StoreModule.forRoot({ login: loginReducer }), // store module for ngrx
     StoreDevtoolsModule.instrument({
@@ -55,6 +60,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     BrowserAnimationsModule,
     MaterialModule, // import material module
+    FormsModule,
   ],
   providers: [
     {
@@ -97,3 +103,4 @@ export class AppModule {}
 
 // 10. Housing Detail Component
 // Purpose: Display detailed information about a house, including facility and resident details.
+
