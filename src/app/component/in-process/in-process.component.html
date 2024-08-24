@@ -3,6 +3,24 @@
     <p>Visa: {{employee.citizenship.visaStatus}}</p>
     <p>Start Date: {{ employee.citizenship.startDate | date:'yyyy-MM-dd' }}</p>
     <p>End Date: {{ employee.citizenship.endDate | date:'yyyy-MM-dd' }}</p>
-    <!-- <p>Days Remaining: {{ calculateDaysRemaining(employee.citizenship.endDate) }}</p> -->
+    <p>Days Remaining: {{ calculateDaysRemaining(employee.citizenship.endDate) }}</p>
+      
+    <div *ngIf="currentDocument">
+        <p>Current Document: {{ currentDocument }}</p>
+        <p>Status: {{ getDocumentStatus(currentDocument) }}</p>
     
-</div>
+        <!-- If the current document is rejected, show only the preview button -->
+        <div *ngIf="rejectedDocument">
+          <button *ngIf="latestDocumentUrl" (click)="previewDocument()">Preview</button>
+        </div>
+    
+        <!-- If the current document is pending, show all action buttons -->
+        <div *ngIf="!rejectedDocument && isDocumentPending(currentDocument)">
+          <button *ngIf="latestDocumentUrl && hasDocumentName(currentDocument)" (click)="previewDocument()">Preview</button>
+          <button *ngIf="hasDocumentName(currentDocument)" (click)="approveDocument(currentDocument)">Approve & Send Notification</button>
+          <button *ngIf="hasDocumentName(currentDocument)" (click)="rejectDocument(currentDocument)">Reject</button>
+          <textarea *ngIf="hasDocumentName(currentDocument)" [(ngModel)]="feedback" placeholder="Enter feedback"></textarea>
+          <p *ngIf="!hasDocumentName(currentDocument)">Waiting for uploading {{ currentDocument }} document.</p>
+        </div>
+      </div>
+    </div>
