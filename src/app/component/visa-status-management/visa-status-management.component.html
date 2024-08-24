@@ -9,10 +9,22 @@
         
     <div class="all-employees-section">
         <h2>All Employees</h2>
-        <app-all-employees
-            *ngFor="let employee of allEmployees"
-            [employee]="employee">
-        </app-all-employees>
+        <div class="search-bar">
+            <input 
+                type="text" 
+                [(ngModel)]="searchTerm" 
+                (input)="filterEmployees()" 
+                placeholder="Search by name">
+        </div>
+        <div *ngIf="filteredEmployees.length > 0">
+            <app-all-employees
+                *ngFor="let employee of filteredEmployees"
+                [employee]="employee">
+            </app-all-employees>
+        </div>
+        <div *ngIf="filteredEmployees.length === 0">
+            <p>No matching records found.</p>
+        </div>
     </div>
 
 </div>

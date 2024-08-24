@@ -11,6 +11,9 @@ export class VisaStatusManagementComponent implements OnInit {
   inProgressEmployees: Employee[] = [];
   allEmployees: Employee[] = [];
 
+  filteredEmployees: Employee[] = []; // To hold search results
+  searchTerm: string = ''; // To hold the current search term
+
   constructor(private visaService: VisaService) { }
 
   ngOnInit(): void {
@@ -38,9 +41,19 @@ export class VisaStatusManagementComponent implements OnInit {
   getAllEmployees() {
     this.visaService.getF1EmployeeVisaStatus().subscribe((response: Employee[]) => {
       this.allEmployees = response;
+      this.filteredEmployees = response;
     }, error => {
       console.error('Error fetching all employees:', error);
     });
+  }
+
+  filterEmployees() {
+    const term = this.searchTerm.toLowerCase();
+    this.filteredEmployees = this.allEmployees.filter(employee => 
+      employee.firstName.toLowerCase().includes(term) ||
+      employee.lastName.toLowerCase().includes(term) ||
+      (employee.preferredName && employee.preferredName.toLowerCase().includes(term))
+    );
   }
 
 }
