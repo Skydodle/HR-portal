@@ -26,6 +26,7 @@ import { LoginTestComponent } from './loginTest.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EmployeeProfilesSummaryComponent } from './component/employee-profiles-summary/employee-profiles-summary.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     InProcessComponent,
     AllEmployeesComponent,
     LoginTestComponent,
+    EmployeeProfilesSummaryComponent,
   ],
   imports: [
     BrowserModule,

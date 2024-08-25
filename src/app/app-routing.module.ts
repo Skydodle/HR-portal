@@ -14,7 +14,7 @@ const routes: Routes = [
   {path: '', redirectTo:'/login', pathMatch:'full'}, // Default route redirects to login
   {path: 'login', component: LoginComponent},
   {path: 'employee-profiles', component: EmployeeProfilesComponent},
-  {path: 'employee=profiles/:id', component: EmployeeProfileDetailComponent},
+  {path: 'employee-profiles/:id', component: EmployeeProfileDetailComponent},
   {path: 'visa-status-management', component: VisaStatusManagementComponent},
   {path: 'hiring-management', component: HiringManagementComponent},
   {path: 'housing-management', component: HousingManagementComponent},
