@@ -8,6 +8,7 @@ import { HiringManagementComponent } from './component/hiring-management/hiring-
 import { HousingManagementComponent } from './component/housing-management/housing-management.component';
 import { HousingDetailComponent } from './component/housing-detail/housing-detail.component';
 import { OnboardingApplicationComponent } from './component/onboarding-application/onboarding-application.component';
+import { GetEmployeeTestComponent } from './component/get-employee-test/get-employee-test.component';
 
 
 const routes: Routes = [
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path: 'housing-management', component: HousingManagementComponent},
   {path: 'housing-detail/:id', component: HousingDetailComponent},
   {path: 'onboarding-applications', component: OnboardingApplicationComponent},
+  { path: 'employee-test', component: GetEmployeeTestComponent },
   {path: '**', redirectTo:'/login'}// Wildcard route redirects to login (for any unmatched routes)
 ];
 
