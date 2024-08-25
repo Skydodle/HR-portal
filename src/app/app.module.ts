@@ -26,7 +26,6 @@ import { LoginTestComponent } from './loginTest.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { GetEmployeeTestComponent } from './component/get-employee-test/get-employee-test.component';
 
 
 @NgModule({
@@ -44,7 +43,6 @@ import { GetEmployeeTestComponent } from './component/get-employee-test/get-empl
     InProcessComponent,
     AllEmployeesComponent,
     LoginTestComponent,
-    GetEmployeeTestComponent,
   ],
   imports: [
     BrowserModule,
