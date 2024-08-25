@@ -1,10 +1,11 @@
 .hiring-management-container {
   width: 100%;
-  padding: 20px;
+  padding: 2rem;
 }
 
 .columns-container {
   display: flex;
+  gap: 1rem;
   justify-content: space-between;
 }
 
