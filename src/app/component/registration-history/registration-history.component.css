@@ -1,0 +1,17 @@
+.registration-history {
+  margin: 20px;
+}
+
+table {
+  width: 100%;
+}
+
+th,
+td {
+  padding: 8px 16px;
+}
+
+a {
+  color: #1976d2;
+  text-decoration: none;
+}
