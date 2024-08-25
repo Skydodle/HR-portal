@@ -1,1 +1,21 @@
-<p>employee-profiles works!</p>
+<h1>Employee Profiles page</h1>
+
+<div class="search-bar">
+  <input 
+    type="text" 
+    [(ngModel)]="searchTerm" 
+    (input)="filterEmployees()" 
+    placeholder="Search by name">
+</div>
+
+<div *ngIf="filteredEmployees.length > 0; else noEmployees">
+  <app-employee-profiles-summary
+    *ngFor="let employee of filteredEmployees"
+    [employee]="employee"
+    class="pointer-cursor"
+  ></app-employee-profiles-summary>
+</div>
+
+<ng-template #noEmployees>
+  <p>No employees found.</p>
+</ng-template>
