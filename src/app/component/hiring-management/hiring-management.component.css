@@ -1,0 +1,28 @@
+.hiring-management-container {
+  width: 100%;
+  padding: 20px;
+}
+
+.columns-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.left-column {
+  width: 35%;
+}
+.right-column {
+  width: 60%; /* Adjust the width as needed */
+}
+
+.left-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Add space between RegistrationToken and RegistrationHistory */
+}
+
+.right-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Add space between OnboardingReview and any other content */
+}
