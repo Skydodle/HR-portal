@@ -26,7 +26,10 @@ import { LoginTestComponent } from './loginTest.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RegistrationHistoryComponent } from './component/registration-history/registration-history.component';
+import { RegistrationTokenComponent } from './component/registration-token/registration-token.component';
 import { EmployeeProfilesSummaryComponent } from './component/employee-profiles-summary/employee-profiles-summary.component';
+
 
 
 @NgModule({
@@ -44,6 +47,8 @@ import { EmployeeProfilesSummaryComponent } from './component/employee-profiles-
     InProcessComponent,
     AllEmployeesComponent,
     LoginTestComponent,
+    RegistrationHistoryComponent,
+    RegistrationTokenComponent,
     EmployeeProfilesSummaryComponent,
   ],
   imports: [
