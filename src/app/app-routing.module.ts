@@ -11,33 +11,22 @@ import { OnboardingApplicationComponent } from './component/onboarding-applicati
 import { OnboardingEmployeeProfileComponent } from './component/onboarding-employee-profile/onboarding-employee-profile.component';
 import { OnboardingEmployeeApprovedProfileComponent } from './component/onboarding-employee-approved-profile/onboarding-employee-approved-profile.component';
 import { OnboardingEmployeeRejectedProfileComponent } from './component/onboarding-employee-rejected-profile/onboarding-employee-rejected-profile.component';
-const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' }, // Default route redirects to login
-  { path: 'login', component: LoginComponent },
-  { path: 'employee-profiles', component: EmployeeProfilesComponent },
-  { path: 'employee-profiles/:id', component: EmployeeProfileDetailComponent },
-  { path: 'visa-status-management', component: VisaStatusManagementComponent },
-  { path: 'hiring-management', component: HiringManagementComponent },
-  { path: 'housing-management', component: HousingManagementComponent },
-  { path: 'housing-detail/:id', component: HousingDetailComponent },
-  {
-    path: 'onboarding-applications',
-    component: OnboardingApplicationComponent,
-  },
-  {
-    path: 'onboarding-employee-profile/:userId',
-    component: OnboardingEmployeeProfileComponent,
-  },
-  {
-    path: 'onboarding-employee-approved-profile/:userId',
-    component: OnboardingEmployeeApprovedProfileComponent,
-  },
-  {
-    path: 'onboarding-employee-rejected-profile/:userId',
-    component: OnboardingEmployeeRejectedProfileComponent,
-  },
 
-  { path: '**', redirectTo: '/login' }, // Wildcard route redirects to login (for any unmatched routes)
+const routes: Routes = [
+  {path: '', redirectTo:'/login', pathMatch:'full'}, // Default route redirects to login
+  {path: 'login', component: LoginComponent},
+  {path: 'employee-profiles', component: EmployeeProfilesComponent},
+  {path: 'employee-profiles/:id', component: EmployeeProfileDetailComponent},
+  {path: 'visa-status-management', component: VisaStatusManagementComponent},
+  {path: 'hiring-management', component: HiringManagementComponent},
+  {path: 'housing-management', component: HousingManagementComponent},
+  {path: 'housing-detail/:id', component: HousingDetailComponent},
+  {path: 'onboarding-applications', component: OnboardingApplicationComponent},
+  {path: 'onboarding-employee-profile/:userId', component: OnboardingEmployeeProfileComponent },
+  {path: 'onboarding-employee-approved-profile/:userId', component: OnboardingEmployeeApprovedProfileComponent },
+  {path: 'onboarding-employee-rejected-profile/:userId', component: OnboardingEmployeeRejectedProfileComponent },
+
+  {path: '**', redirectTo:'/login'}// Wildcard route redirects to login (for any unmatched routes)
 ];
 
 @NgModule({
