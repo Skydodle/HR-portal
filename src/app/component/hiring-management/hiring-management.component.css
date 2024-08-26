@@ -1,28 +1,30 @@
 .hiring-management-container {
-  width: 100%;
-  padding: 20px;
+  padding: 2rem;
 }
 
 .columns-container {
   display: flex;
-  justify-content: space-between;
+  gap: 1rem;
+  justify-content: space-around;
 }
 
 .left-column {
-  width: 35%;
+  flex-shrink: 0;
 }
 .right-column {
-  width: 60%; /* Adjust the width as needed */
+  flex-grow: 1;
+  flex-shrink: 0;
+  padding: 1rem;
 }
 
 .left-column {
   display: flex;
   flex-direction: column;
-  gap: 20px; /* Add space between RegistrationToken and RegistrationHistory */
+  gap: 2rem; /* Add space between RegistrationToken and RegistrationHistory */
 }
 
 .right-column {
   display: flex;
   flex-direction: column;
-  gap: 20px; /* Add space between OnboardingReview and any other content */
+  gap: 2rem; /* Add space between OnboardingReview and any other content */
 }

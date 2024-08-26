@@ -1,0 +1,14 @@
+.visa-status-page {
+  padding: 2rem;
+}
+.section {
+  gap: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+.all-employees-section,
+.in-progress-section {
+  border: 1px solid lightgray;
+  padding: 2rem;
+  margin-bottom: 1rem;
+}

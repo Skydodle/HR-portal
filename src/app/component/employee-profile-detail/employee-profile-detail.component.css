@@ -1,0 +1,14 @@
+.detail-page {
+  padding: 2rem;
+}
+
+.container {
+  margin-top: 2rem;
+
+  gap: 2rem;
+}
+.section {
+  background-color: white;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}

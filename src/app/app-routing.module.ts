@@ -11,6 +11,7 @@ import { OnboardingApplicationComponent } from './component/onboarding-applicati
 import { OnboardingEmployeeProfileComponent } from './component/onboarding-employee-profile/onboarding-employee-profile.component';
 import { OnboardingEmployeeApprovedProfileComponent } from './component/onboarding-employee-approved-profile/onboarding-employee-approved-profile.component';
 import { OnboardingEmployeeRejectedProfileComponent } from './component/onboarding-employee-rejected-profile/onboarding-employee-rejected-profile.component';
+
 const routes: Routes = [
   {path: '', redirectTo:'/login', pathMatch:'full'}, // Default route redirects to login
   {path: 'login', component: LoginComponent},
@@ -30,6 +31,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
