@@ -1,0 +1,28 @@
+/* onboarding-employee-profile.component.css */
+
+.employee-profile {
+    padding: 20px;
+  }
+  
+  .profile-header, .address, .car, .citizenship, .driver-license, .reference, .emergency-contacts, .feedback {
+    margin-bottom: 20px; /* Adds space between sections */
+  }
+  
+  h3 {
+    font-weight: bold; /* Makes all h3 elements bold */
+  }
+  
+  .profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+  }
+  
+  ul {
+    padding-left: 20px;
+  }
+  
+  li {
+    margin-bottom: 10px;
+  }
+  

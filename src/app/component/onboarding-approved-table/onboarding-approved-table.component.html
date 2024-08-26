@@ -1,0 +1,31 @@
+<table mat-table [dataSource]="approvedEmployeeData" class="mat-elevation-z8">
+
+    <!-- Full Name Column -->
+    <ng-container matColumnDef="fullName">
+      <th mat-header-cell *matHeaderCellDef> Full Name </th>
+      <td mat-cell *matCellDef="let element"> {{ getFullName(element.firstName, element.lastName) }} </td>
+    </ng-container>
+  
+    <!-- Email Column -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef> Email </th>
+      <td mat-cell *matCellDef="let element"> {{ element.userId?.email }} </td>
+    </ng-container>
+  
+    <!-- View Application Column -->
+    <ng-container matColumnDef="viewApplication">
+      <th mat-header-cell *matHeaderCellDef> View Application </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-raised-button color="primary" (click)="viewApplication(element.userId)">
+          View Application
+        </button>
+      </td>
+    </ng-container>
+  
+    <!-- Header Row -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <!-- Data Row -->
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  
+  </table>
+  

@@ -1,2 +1,18 @@
-<p>onboarding-application works!</p>
-<h2>Onboarding Review</h2>
+<div class="container">
+  <h2>Onboarding Review</h2>
+
+  <h3>Pending Applications</h3>
+  <app-onboarding-pending-table
+    [pendingEmployeeData]="pendingApplications"
+  ></app-onboarding-pending-table>
+
+  <h3>Rejected Applications</h3>
+  <app-onboarding-rejected-table
+    [rejectedEmployeeData]="rejectedApplications"
+  ></app-onboarding-rejected-table>
+
+  <h3>Approved Applications</h3>
+  <app-onboarding-approved-table
+    [approvedEmployeeData]="approvedApplications"
+  ></app-onboarding-approved-table>
+</div>
