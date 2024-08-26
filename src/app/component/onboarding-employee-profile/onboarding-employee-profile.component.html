@@ -2,7 +2,12 @@
     <h1>Employee Profile</h1>
   
     <div class="profile-header">
-      <img *ngIf="employee.profilePicture" [src]="employee.profilePicture" alt="Profile Picture" class="profile-picture">
+      <img 
+      [src]="profilePictureUrl" 
+      alt="Profile Picture" 
+      class="profile-picture"
+      *ngIf="profilePictureUrl" 
+    />      
       <h2>{{ employee.firstName }} {{ employee.middleName ? employee.middleName + ' ' : '' }}{{ employee.lastName }}</h2>
       <p><strong>Preferred Name:</strong> {{ employee.preferredName }}</p>
       <p><strong>Email:</strong> {{ employee.userId?.email || 'N/A' }}</p>
@@ -30,11 +35,15 @@
       <p><strong>Start Date:</strong> {{ employee.citizenship?.startDate | date }}</p>
       <p><strong>End Date:</strong> {{ employee.citizenship?.endDate | date }}</p>
       <p><strong>OPT Document:</strong> {{ employee.citizenship?.optDocument || 'N/A' }}</p>
+      <button *ngIf="getDocumentUrl('optReceipt')" (click)="previewDocument('optReceipt')">OPT Doc</button>
+
     </div>
   
     <div class="driver-license">
       <h3>Driver License</h3>
       <p *ngIf="employee.driverLicense">License Number: {{ employee.driverLicense.licenseNumber || 'N/A' }}, Expiration Date: {{ employee.driverLicense.expirationDate | date }}</p>
+      <button *ngIf="driverLicenseUrl" (click)="openDriverLicense()">Driver License</button>
+    
     </div>
   
     <div class="reference">
