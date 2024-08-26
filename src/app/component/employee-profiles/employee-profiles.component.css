@@ -1,3 +1,11 @@
 .pointer-cursor {
-    cursor: pointer;
-  }
+  cursor: pointer;
+}
+.employee-profile-page {
+  padding: 2rem;
+}
+.sumarry-container {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}

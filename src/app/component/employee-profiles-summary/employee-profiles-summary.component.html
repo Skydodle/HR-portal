@@ -1,7 +1,12 @@
-<div (click)="goToDetail()">
-    <p>Name: {{ employee.firstName }} {{ employee.middleName }} {{ employee.lastName }}</p>   
+<mat-card appearance="outlined">
+  <div (click)="goToDetail()" class="summary">
+    <p>
+      Name: {{ employee.firstName }} {{ employee.middleName }}
+      {{ employee.lastName }}
+    </p>
     <p>SSN: {{ employee.ssn }}</p>
-    <p>Work Authorization Title: {{ employee.visaStatus }}</p>  
+    <p>Work Authorization Title: {{ employee.visaStatus }}</p>
     <p>Cell Phone Number: {{ employee.cellPhoneNumber }}</p>
     <p>Email: {{ employee.email }}</p>
-</div>
+  </div>
+</mat-card>

@@ -1,35 +1,65 @@
-
-<div *ngIf="employeeDetail">
-    <h1>{{ employeeDetail.firstName }} {{ employeeDetail.middleName }} {{ employeeDetail.lastName }}'s Profile</h1>
-    <p>Preferred Name: {{ employeeDetail.preferredName }}</p>
-    <p>SSN: {{ employeeDetail.ssn }}</p>
-    <p>Gender: {{ employeeDetail.gender }}</p>
-    <p>Date of Birth: {{ employeeDetail.dateOfBirth | date }}</p>
-    <p>Cell Phone Number: {{ employeeDetail.cellPhoneNumber }}</p>
-    <p>Work Phone Number: {{ employeeDetail.workPhoneNumber }}</p>
-    <p>Email: {{ employeeDetail.userId.email }}</p>
-    <p>Address: {{ employeeDetail.address.street }}, {{ employeeDetail.address.city }}, {{ employeeDetail.address.state }} {{ employeeDetail.address.zip }}</p>
-    
-    <h2>Citizenship</h2>
-    <p>Visa Status: {{ employeeDetail.citizenship.visaStatus }}</p>
-    <p>Start Date: {{ employeeDetail.citizenship.startDate | date }}</p>
-    <p>End Date: {{ employeeDetail.citizenship.endDate | date }}</p>
-    <p>Days Remaining: {{ calculateDaysRemaining(employeeDetail.citizenship.endDate) }}</p>
-    
-    <h2>Driver License</h2>
-    <p>Has Driver License: {{ employeeDetail.driverLicense.hasDriverLicense ? 'Yes' : 'No' }}</p>
-    <p>License Number: {{ employeeDetail.driverLicense.licenseNumber }}</p>
-    <p>Expiration Date: {{ employeeDetail.driverLicense.expirationDate | date }}</p>
-    <p>Car: {{ employeeDetail.car.make }} {{ employeeDetail.car.model }}, {{ employeeDetail.car.color }}</p>
-    
-    <h2>Emergency Contacts</h2>
-    <div *ngFor="let contact of employeeDetail.emergencyContacts">
-        <p>Name: {{ contact.firstName }} {{ contact.middleName }} {{ contact.lastName }}</p>
+<div class="detail-page">
+  <h1 class="h1">
+    {{ employeeDetail.firstName }} {{ employeeDetail.middleName }}
+    {{ employeeDetail.lastName }}'s Profile
+  </h1>
+  <div class="container" *ngIf="employeeDetail">
+    <div class="section">
+      <p>Preferred Name: {{ employeeDetail.preferredName }}</p>
+      <p>SSN: {{ employeeDetail.ssn }}</p>
+      <p>Gender: {{ employeeDetail.gender }}</p>
+      <p>Date of Birth: {{ employeeDetail.dateOfBirth | date }}</p>
+      <p>Cell Phone Number: {{ employeeDetail.cellPhoneNumber }}</p>
+      <p>Work Phone Number: {{ employeeDetail.workPhoneNumber }}</p>
+      <p>Email: {{ employeeDetail.userId.email }}</p>
+      <p>
+        Address: {{ employeeDetail.address.street }},
+        {{ employeeDetail.address.city }}, {{ employeeDetail.address.state }}
+        {{ employeeDetail.address.zip }}
+      </p>
+    </div>
+    <div class="section">
+      <h2>Citizenship</h2>
+      <p>Visa Status: {{ employeeDetail.citizenship.visaStatus }}</p>
+      <p>Start Date: {{ employeeDetail.citizenship.startDate | date }}</p>
+      <p>End Date: {{ employeeDetail.citizenship.endDate | date }}</p>
+      <p>
+        Days Remaining:
+        {{ calculateDaysRemaining(employeeDetail.citizenship.endDate) }}
+      </p>
+    </div>
+    <div class="section">
+      <h2>Driver License</h2>
+      <p>
+        Has Driver License:
+        {{ employeeDetail.driverLicense.hasDriverLicense ? "Yes" : "No" }}
+      </p>
+      <p>License Number: {{ employeeDetail.driverLicense.licenseNumber }}</p>
+      <p>
+        Expiration Date:
+        {{ employeeDetail.driverLicense.expirationDate | date }}
+      </p>
+      <p>
+        Car: {{ employeeDetail.car.make }} {{ employeeDetail.car.model }},
+        {{ employeeDetail.car.color }}
+      </p>
+    </div>
+    <div class="section">
+      <h2>Emergency Contacts</h2>
+      <div *ngFor="let contact of employeeDetail.emergencyContacts">
+        <p>
+          Name: {{ contact.firstName }} {{ contact.middleName }}
+          {{ contact.lastName }}
+        </p>
         <p>Phone: {{ contact.phone }}</p>
         <p>Email: {{ contact.email }}</p>
         <p>Relationship: {{ contact.relationship }}</p>
-        <hr>
+      </div>
     </div>
-
-    <button (click)="goBack()">Back to Employee Profiles</button>
+  </div>
+  <div>
+    <button mat-button (click)="goBack()">
+      <mat-icon>arrow_back_ios</mat-icon>Back to Employee Profiles
+    </button>
+  </div>
 </div>

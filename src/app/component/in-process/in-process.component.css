@@ -1,0 +1,12 @@
+.reject {
+  color: red;
+}
+
+.action-container {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+textarea {
+  margin: 1rem;
+}

@@ -1,32 +1,92 @@
-<div>
-    <p>Name: {{employee.firstName}} {{employee.lastName}}</p>
-    <p>Visa: {{employee.citizenship.visaStatus}}</p>
-    <p>Start Date: {{ employee.citizenship.startDate | date:'yyyy-MM-dd' }}</p>
-    <p>End Date: {{ employee.citizenship.endDate | date:'yyyy-MM-dd' }}</p>
-    <p>Days Remaining: {{ calculateDaysRemaining(employee.citizenship.endDate) }}</p>
-    
-    <p>OPT Receipt: 
-        <button *ngIf="getDocumentUrl('optReceipt')" (click)="previewDocument('optReceipt')">Preview</button>
-        <button *ngIf="getDocumentUrl('optReceipt')" (click)="downloadDocument('optReceipt')">Download</button>
-        <span *ngIf="!getDocumentUrl('optReceipt')">No document available</span>
-    </p>
+<mat-card appearance="outlined">
+  <p>Name: {{ employee.firstName }} {{ employee.lastName }}</p>
+  <p>Visa: {{ employee.citizenship.visaStatus }}</p>
+  <p>Start Date: {{ employee.citizenship.startDate | date : "yyyy-MM-dd" }}</p>
+  <p>End Date: {{ employee.citizenship.endDate | date : "yyyy-MM-dd" }}</p>
+  <p>
+    Days Remaining: {{ calculateDaysRemaining(employee.citizenship.endDate) }}
+  </p>
 
-    <p>OPT EAD: 
-        <button *ngIf="getDocumentUrl('optEAD')" (click)="previewDocument('optEAD')">Preview</button>
-        <button *ngIf="getDocumentUrl('optEAD')" (click)="downloadDocument('optEAD')">Download</button>
-        <span *ngIf="!getDocumentUrl('optEAD')">No document available</span>
-    </p>
+  <div>
+    OPT Receipt:
+    <button
+      mat-button
+      *ngIf="getDocumentUrl('optReceipt')"
+      (click)="previewDocument('optReceipt')"
+    >
+      <mat-icon>preview</mat-icon>
+      Preview
+    </button>
+    <button
+      mat-raised-button
+      *ngIf="getDocumentUrl('optReceipt')"
+      (click)="downloadDocument('optReceipt')"
+    >
+      <mat-icon>download</mat-icon>
+      Download
+    </button>
+    <span *ngIf="!getDocumentUrl('optReceipt')">No document available</span>
+  </div>
 
-    <p>I-983: 
-        <button *ngIf="getDocumentUrl('i983')" (click)="previewDocument('i983')">Preview</button>
-        <button *ngIf="getDocumentUrl('i983')" (click)="downloadDocument('i983')">Download</button>
-        <span *ngIf="!getDocumentUrl('i983')">No document available</span>
-    </p>
+  <div>
+    OPT EAD:
+    <button
+      mat-button
+      *ngIf="getDocumentUrl('optEAD')"
+      (click)="previewDocument('optEAD')"
+    >
+      <mat-icon>preview</mat-icon>
+      Preview
+    </button>
+    <button
+      mat-raised-button
+      *ngIf="getDocumentUrl('optEAD')"
+      (click)="downloadDocument('optEAD')"
+    >
+      <mat-icon>download</mat-icon>
+      Download
+    </button>
+    <span *ngIf="!getDocumentUrl('optEAD')">No document available</span>
+  </div>
 
-    <p>I-20: 
-        <button *ngIf="getDocumentUrl('i20')" (click)="previewDocument('i20')">Preview</button>
-        <button *ngIf="getDocumentUrl('i20')" (click)="downloadDocument('i20')">Download</button>
-        <span *ngIf="!getDocumentUrl('i20')">No document available</span>
-    </p>
-    
-</div>
+  <div>
+    I-983:
+    <button
+      mat-button
+      *ngIf="getDocumentUrl('i983')"
+      (click)="previewDocument('i983')"
+    >
+      <mat-icon>preview</mat-icon>
+      Preview
+    </button>
+    <button
+      mat-raised-button
+      *ngIf="getDocumentUrl('i983')"
+      (click)="downloadDocument('i983')"
+    >
+      <mat-icon>download</mat-icon>
+      Download
+    </button>
+    <span *ngIf="!getDocumentUrl('i983')">No document available</span>
+  </div>
+
+  <div>
+    I-20:
+    <button
+      mat-button
+      *ngIf="getDocumentUrl('i20')"
+      (click)="previewDocument('i20')"
+    >
+      Preview
+    </button>
+    <button
+      mat-raised-button
+      *ngIf="getDocumentUrl('i20')"
+      (click)="downloadDocument('i20')"
+    >
+      <mat-icon>download</mat-icon>
+      Download
+    </button>
+    <span *ngIf="!getDocumentUrl('i20')">No document available</span>
+  </div>
+</mat-card>
