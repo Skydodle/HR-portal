@@ -29,6 +29,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegistrationHistoryComponent } from './component/registration-history/registration-history.component';
 import { RegistrationTokenComponent } from './component/registration-token/registration-token.component';
 import { EmployeeProfilesSummaryComponent } from './component/employee-profiles-summary/employee-profiles-summary.component';
+import { OnboardingPendingTableComponent } from './component/onboarding-pending-table/onboarding-pending-table.component';
+import { OnboardingEmployeeProfileComponent } from './component/onboarding-employee-profile/onboarding-employee-profile.component';
+import { OnboardingApprovedTableComponent } from './component/onboarding-approved-table/onboarding-approved-table.component';
+import { OnboardingEmployeeApprovedProfileComponent } from './component/onboarding-employee-approved-profile/onboarding-employee-approved-profile.component';
+import { OnboardingRejectedTableComponent } from './component/onboarding-rejected-table/onboarding-rejected-table.component';
+import { OnboardingEmployeeRejectedProfileComponent } from './component/onboarding-employee-rejected-profile/onboarding-employee-rejected-profile.component';
 
 
 
@@ -50,6 +56,12 @@ import { EmployeeProfilesSummaryComponent } from './component/employee-profiles-
     RegistrationHistoryComponent,
     RegistrationTokenComponent,
     EmployeeProfilesSummaryComponent,
+    OnboardingPendingTableComponent,
+    OnboardingEmployeeProfileComponent,
+    OnboardingApprovedTableComponent,
+    OnboardingEmployeeApprovedProfileComponent,
+    OnboardingRejectedTableComponent,
+    OnboardingEmployeeRejectedProfileComponent,
   ],
   imports: [
     BrowserModule,
