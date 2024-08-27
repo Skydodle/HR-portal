@@ -35,6 +35,8 @@ import { OnboardingApprovedTableComponent } from './component/onboarding-approve
 import { OnboardingEmployeeApprovedProfileComponent } from './component/onboarding-employee-approved-profile/onboarding-employee-approved-profile.component';
 import { OnboardingRejectedTableComponent } from './component/onboarding-rejected-table/onboarding-rejected-table.component';
 import { OnboardingEmployeeRejectedProfileComponent } from './component/onboarding-employee-rejected-profile/onboarding-employee-rejected-profile.component';
+import { MainLayoutComponent } from './component/main-layout/main-layout.component';
+import { NoNavbarLayoutComponent } from './component/no-navbar-layout/no-navbar-layout.component';
 
 
 
@@ -62,6 +64,8 @@ import { OnboardingEmployeeRejectedProfileComponent } from './component/onboardi
     OnboardingEmployeeApprovedProfileComponent,
     OnboardingRejectedTableComponent,
     OnboardingEmployeeRejectedProfileComponent,
+    MainLayoutComponent,
+    NoNavbarLayoutComponent,
   ],
   imports: [
     BrowserModule,
