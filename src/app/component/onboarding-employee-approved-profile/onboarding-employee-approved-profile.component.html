@@ -1,68 +1,123 @@
 <div class="employee-profile">
-    <h1>Employee Profile</h1>
-  
-    <div class="profile-header">
-      <img 
-      [src]="profilePictureUrl" 
-      alt="Profile Picture" 
-      class="profile-picture"
-      *ngIf="profilePictureUrl" 
-    />        
-    <h2>{{ employee.firstName }} {{ employee.middleName ? employee.middleName + ' ' : '' }}{{ employee.lastName }}</h2>
+  <h1>Employee Profile</h1>
+  <div class="section-container">
+    <mat-card appearance="outlined" class="profile-header">
+      <img
+        [src]="profilePictureUrl"
+        alt="Profile Picture"
+        class="profile-picture"
+        *ngIf="profilePictureUrl"
+      />
+      <h2>
+        {{ employee.firstName }}
+        {{ employee.middleName ? employee.middleName + " " : ""
+        }}{{ employee.lastName }}
+      </h2>
       <p><strong>Preferred Name:</strong> {{ employee.preferredName }}</p>
-      <p><strong>Email:</strong> {{ employee.userId?.email || 'N/A' }}</p>
-      <p><strong>Phone:</strong> {{ employee.cellPhoneNumber }} / {{ employee.workPhoneNumber || 'N/A' }}</p>
+      <p><strong>Email:</strong> {{ employee.userId?.email || "N/A" }}</p>
+      <p>
+        <strong>Phone:</strong> {{ employee.cellPhoneNumber }} /
+        {{ employee.workPhoneNumber || "N/A" }}
+      </p>
       <p><strong>Date of Birth:</strong> {{ employee.dateOfBirth | date }}</p>
-      <p><strong>Gender:</strong> {{ employee.gender || 'N/A' }}</p>
+      <p><strong>Gender:</strong> {{ employee.gender || "N/A" }}</p>
       <p><strong>SSN:</strong> {{ employee.ssn }}</p>
       <p><strong>Onboarding Status:</strong> {{ employee.onboardingStatus }}</p>
-    </div>
-  
-    <div class="address">
+    </mat-card>
+
+    <mat-card class="address" appearance="outlined">
       <h3>Address</h3>
-      <p>{{ employee.address?.street || 'N/A' }}, {{ employee.address?.city || 'N/A' }}, {{ employee.address?.state || 'N/A' }} {{ employee.address?.zip || 'N/A' }}</p>
-    </div>
-  
-    <div class="car">
+      <p>
+        {{ employee.address?.street || "N/A" }},
+        {{ employee.address?.city || "N/A" }},
+        {{ employee.address?.state || "N/A" }}
+        {{ employee.address?.zip || "N/A" }}
+      </p>
+    </mat-card>
+
+    <mat-card class="car" appearance="outlined">
       <h3>Car Information</h3>
-      <p *ngIf="employee.car">Make: {{ employee.car.make || 'N/A' }}, Model: {{ employee.car.model || 'N/A' }}, Color: {{ employee.car.color || 'N/A' }}</p>
-    </div>
-  
-    <div class="citizenship">
+      <p *ngIf="employee.car">
+        Make: {{ employee.car.make || "N/A" }}, Model:
+        {{ employee.car.model || "N/A" }}, Color:
+        {{ employee.car.color || "N/A" }}
+      </p>
+    </mat-card>
+
+    <mat-card class="citizenship" appearance="outlined">
       <h3>Citizenship</h3>
-      <p><strong>Visa Status:</strong> {{ employee.citizenship?.visaStatus || 'N/A' }}</p>
-      <p><strong>Visa Type:</strong> {{ employee.citizenship?.visaType || 'N/A' }}</p>
-      <p><strong>Start Date:</strong> {{ employee.citizenship?.startDate | date }}</p>
-      <p><strong>End Date:</strong> {{ employee.citizenship?.endDate | date }}</p>
-      <p><strong>OPT Document:</strong> {{ employee.citizenship?.optDocument || 'N/A' }}</p>
-      <button *ngIf="getDocumentUrl('optReceipt')" (click)="previewDocument('optReceipt')">Preview</button>
-    </div>
-  
-    <div class="driver-license">
+      <p>
+        <strong>Visa Status:</strong>
+        {{ employee.citizenship?.visaStatus || "N/A" }}
+      </p>
+      <p>
+        <strong>Visa Type:</strong>
+        {{ employee.citizenship?.visaType || "N/A" }}
+      </p>
+      <p>
+        <strong>Start Date:</strong>
+        {{ employee.citizenship?.startDate | date }}
+      </p>
+      <p>
+        <strong>End Date:</strong> {{ employee.citizenship?.endDate | date }}
+      </p>
+      <p>
+        <strong>OPT Document:</strong>
+        {{ employee.citizenship?.optDocument || "N/A" }}
+      </p>
+      <button
+        mat-button
+        *ngIf="getDocumentUrl('optReceipt')"
+        (click)="previewDocument('optReceipt')"
+      >
+        Preview
+      </button>
+    </mat-card>
+
+    <mat-card class="driver-license" appearance="outlined">
       <h3>Driver License</h3>
-      <p *ngIf="employee.driverLicense">License Number: {{ employee.driverLicense.licenseNumber || 'N/A' }}, Expiration Date: {{ employee.driverLicense.expirationDate | date }}</p>
-      <button *ngIf="driverLicenseUrl" (click)="openDriverLicense()">Driver License</button>
-    </div>
-  
-    <div class="reference">
+      <p *ngIf="employee.driverLicense">
+        License Number: {{ employee.driverLicense.licenseNumber || "N/A" }},
+        Expiration Date: {{ employee.driverLicense.expirationDate | date }}
+      </p>
+      <button mat-button *ngIf="driverLicenseUrl" (click)="openDriverLicense()">
+        Driver License
+      </button>
+    </mat-card>
+
+    <mat-card class="reference" appearance="outlined">
       <h3>Reference</h3>
-      <p>{{ employee.reference?.firstName || 'N/A' }} {{ employee.reference?.middleName ? employee.reference.middleName + ' ' : '' }}{{ employee.reference?.lastName || 'N/A' }}</p>
-      <p><strong>Phone:</strong> {{ employee.reference?.phone || 'N/A' }}</p>
-      <p><strong>Email:</strong> {{ employee.reference?.email || 'N/A' }}</p>
-      <p><strong>Relationship:</strong> {{ employee.reference?.relationship || 'N/A' }}</p>
-    </div>
-  
-    <div class="emergency-contacts">
+      <p>
+        {{ employee.reference?.firstName || "N/A" }}
+        {{
+          employee.reference?.middleName
+            ? employee.reference.middleName + " "
+            : ""
+        }}{{ employee.reference?.lastName || "N/A" }}
+      </p>
+      <p><strong>Phone:</strong> {{ employee.reference?.phone || "N/A" }}</p>
+      <p><strong>Email:</strong> {{ employee.reference?.email || "N/A" }}</p>
+      <p>
+        <strong>Relationship:</strong>
+        {{ employee.reference?.relationship || "N/A" }}
+      </p>
+    </mat-card>
+
+    <mat-card class="emergency-contacts" appearance="outlined">
       <h3>Emergency Contacts</h3>
       <ul>
         <li *ngFor="let contact of employee.emergencyContacts">
-          <p>{{ contact.firstName }} {{ contact.middleName ? contact.middleName + ' ' : '' }}{{ contact.lastName }}</p>
+          <p>
+            {{ contact.firstName }}
+            {{ contact.middleName ? contact.middleName + " " : ""
+            }}{{ contact.lastName }}
+          </p>
           <p><strong>Phone:</strong> {{ contact.phoneNumber }}</p>
-          <p><strong>Email:</strong> {{ contact.emailAddress || 'N/A' }}</p>
+          <p><strong>Email:</strong> {{ contact.emailAddress || "N/A" }}</p>
           <p><strong>Relationship:</strong> {{ contact.relationship }}</p>
         </li>
       </ul>
-    </div>
-
-    <!-- Remove the action-buttons section for approved applications -->
+    </mat-card>
   </div>
+  <!-- Remove the action-buttons section for approved applications -->
+</div>
