@@ -1,0 +1,17 @@
+.employee-profile {
+  padding: 2rem;
+}
+.section-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+mat-card {
+  padding: 1rem;
+  min-width: 30rem;
+}
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+}

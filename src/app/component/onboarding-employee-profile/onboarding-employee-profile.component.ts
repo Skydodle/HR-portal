@@ -68,6 +68,7 @@ export class OnboardingEmployeeProfileComponent implements OnInit {
   getEmployeeDetails(userId: string): void {
     this.onboardingService.getUserProfileByID(userId).subscribe({
       next: (data) => {
+        console.log("hello")
         console.log('Employee data:', data);
         // Assign the fetched data to the employee object
         this.employee = data.user || {};

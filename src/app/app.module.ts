@@ -36,6 +36,8 @@ import { OnboardingEmployeeApprovedProfileComponent } from './component/onboardi
 import { OnboardingRejectedTableComponent } from './component/onboarding-rejected-table/onboarding-rejected-table.component';
 import { OnboardingEmployeeRejectedProfileComponent } from './component/onboarding-employee-rejected-profile/onboarding-employee-rejected-profile.component';
 import { HousingSummaryComponent } from './component/housing-summary/housing-summary.component';
+import { MainLayoutComponent } from './component/main-layout/main-layout.component';
+import { NoNavbarLayoutComponent } from './component/no-navbar-layout/no-navbar-layout.component';
 
 
 
@@ -64,6 +66,8 @@ import { HousingSummaryComponent } from './component/housing-summary/housing-sum
     OnboardingRejectedTableComponent,
     OnboardingEmployeeRejectedProfileComponent,
     HousingSummaryComponent,
+    MainLayoutComponent,
+    NoNavbarLayoutComponent,
   ],
   imports: [
     BrowserModule,

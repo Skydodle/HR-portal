@@ -1,4 +1,5 @@
 <div *ngFor="let house of houses">
+<<<<<<< HEAD
     <h3>{{ house.address }}</h3>
     <p>Landlord: {{ house.landlord.fullName }}</p>
     <p>Phone: {{ house.landlord.phoneNumber }}</p>
@@ -8,3 +9,17 @@
     <button (click)="deleteHouse(house._id)">Delete</button> <!-- Ensure this is using the deleteHouse method in the child component -->
     <hr>
 </div>
+=======
+  <h3>{{ house.address }}</h3>
+  <p>Landlord: {{ house.landlord.fullName }}</p>
+  <p>Phone: {{ house.landlord.phoneNumber }}</p>
+  <p>Email: {{ house.landlord.email }}</p>
+  <p>Number of Residents: {{ house.residents.length }}</p>
+  <button mat-button (click)="goToDetail(house._id)">View Details</button>
+  <button color="warn" mat-button (click)="deleteHouse(house._id)">
+    Delete
+  </button>
+  <!-- Ensure this is using the deleteHouse method in the child component -->
+  <hr />
+</div>
+>>>>>>> 0877f7bdef30417e76e27b7a72a952382ca48087
