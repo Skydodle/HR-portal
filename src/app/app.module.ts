@@ -35,6 +35,7 @@ import { OnboardingApprovedTableComponent } from './component/onboarding-approve
 import { OnboardingEmployeeApprovedProfileComponent } from './component/onboarding-employee-approved-profile/onboarding-employee-approved-profile.component';
 import { OnboardingRejectedTableComponent } from './component/onboarding-rejected-table/onboarding-rejected-table.component';
 import { OnboardingEmployeeRejectedProfileComponent } from './component/onboarding-employee-rejected-profile/onboarding-employee-rejected-profile.component';
+import { HousingSummaryComponent } from './component/housing-summary/housing-summary.component';
 
 
 
@@ -62,6 +63,7 @@ import { OnboardingEmployeeRejectedProfileComponent } from './component/onboardi
     OnboardingEmployeeApprovedProfileComponent,
     OnboardingRejectedTableComponent,
     OnboardingEmployeeRejectedProfileComponent,
+    HousingSummaryComponent,
   ],
   imports: [
     BrowserModule,
