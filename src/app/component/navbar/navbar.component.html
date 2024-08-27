@@ -1,1 +1,11 @@
-<p>navbar works!</p>
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span>BeaconFire HR Portal</span>
+      <span class="spacer"></span>
+      <a mat-button routerLink="/employee-profiles" routerLinkActive="active-link">Employee Profiles</a>
+      <a mat-button routerLink="/visa-status-management" routerLinkActive="active-link">Visa Status Management</a>
+      <a mat-button routerLink="/hiring-management" routerLinkActive="active-link">Hiring Management</a>
+      <a mat-button routerLink="/housing-management" routerLinkActive="active-link">Housing Management</a>
+      <button mat-button (click)="logout()" >Logout</button> 
+    </mat-toolbar-row>
+  </mat-toolbar>
