@@ -122,31 +122,34 @@
       <h3>Previous Feedback</h3>
       <p>{{ employee.feedback || "No feedback provided" }}</p>
     </mat-card>
+  </div>
+  <div class="action-buttons">
+    <button mat-raised-button color="primary" (click)="approveApplication()">
+      Approve
+    </button>
+    <button mat-raised-button color="warn" (click)="openRejectModal()">
+      Reject
+    </button>
+  </div>
 
-    <div class="action-buttons">
-      <button mat-raised-button color="primary" (click)="approveApplication()">
-        Approve
-      </button>
-      <button mat-raised-button color="warn" (click)="openRejectModal()">
-        Reject
-      </button>
-    </div>
-
-    <!-- Modal for feedback (shown only if reject is clicked) -->
-    <div *ngIf="showRejectModal" class="modal">
-      <div class="modal-content">
-        <h3>Reject Application</h3>
+  <!-- Modal for feedback (shown only if reject is clicked) -->
+  <mat-card *ngIf="showRejectModal" class="modal">
+    <div class="modal-content">
+      <mat-form-field class="example-full-width">
+        <mat-label>Reject Application</mat-label>
         <textarea
+          matInput
           [(ngModel)]="feedback"
           placeholder="Enter feedback here"
         ></textarea>
-        <div class="modal-actions">
-          <button mat-raised-button color="warn" (click)="rejectApplication()">
-            Submit
-          </button>
-          <button mat-button (click)="closeRejectModal()">Cancel</button>
-        </div>
-      </div>
+      </mat-form-field>
     </div>
-  </div>
+
+    <div class="modal-actions">
+      <button mat-raised-button color="warn" (click)="rejectApplication()">
+        Submit
+      </button>
+      <button mat-button (click)="closeRejectModal()">Cancel</button>
+    </div>
+  </mat-card>
 </div>

@@ -130,11 +130,14 @@
   <!-- Modal for feedback (shown only if reject is clicked) -->
   <div *ngIf="showRejectModal" class="modal">
     <div class="modal-content">
-      <h3>Reject Application</h3>
-      <textarea
-        [(ngModel)]="feedback"
-        placeholder="Enter feedback here"
-      ></textarea>
+      <mat-form-field class="example-full-width">
+        <mat-label>Reject Application</mat-label>
+        <textarea
+          matInput
+          [(ngModel)]="feedback"
+          placeholder="Enter feedback here"
+        ></textarea>
+      </mat-form-field>
       <div class="modal-actions">
         <button mat-raised-button color="warn" (click)="rejectApplication()">
           Submit
