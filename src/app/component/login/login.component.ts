@@ -9,6 +9,7 @@ import {
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { LoginService } from '../../services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -24,7 +25,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private store: Store,
-    private router: Router
+    private router: Router,
+    private loginService: LoginService
   ) {
     this.loginForm = this.fb.group({
       username: ['', [Validators.required]],
@@ -46,12 +48,24 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.isAuthenticated$.subscribe((isAuthenticated) => {
       if (isAuthenticated) {
-        setTimeout(() => {
-          // Redirect to another page after 2 seconds
-          this.router.navigate(['/employee-profiles']); // Assuming you have a dashboard route
-        }, 2000);
+        // setTimeout(() => {
+        //   // Redirect to another page after 2 seconds
+        //   this.router.navigate(['/employee-profiles']); // Assuming you have a dashboard route
+        // }, 2000);
+        this.router.navigate(['/employee-profiles']);
+      }    else if (this.loginService.checkTokenValidity()) {
+        console.log('Token is valid. Redirecting to employee-profiles.');
+        this.router.navigate(['/employee-profiles']).then(success => {
+          if (!success) {
+            console.error('Failed to redirect to employee-profiles');
+          }
+        });
+      } else {
+        console.log('Token is not valid or not present.');
       }
     });
+
+
   }
 
   onSubmit(): void {

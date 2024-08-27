@@ -13,33 +13,36 @@ import { OnboardingApplicationComponent } from './component/onboarding-applicati
 import { OnboardingEmployeeProfileComponent } from './component/onboarding-employee-profile/onboarding-employee-profile.component';
 import { OnboardingEmployeeApprovedProfileComponent } from './component/onboarding-employee-approved-profile/onboarding-employee-approved-profile.component';
 import { OnboardingEmployeeRejectedProfileComponent } from './component/onboarding-employee-rejected-profile/onboarding-employee-rejected-profile.component';
-
+import { AuthGuard } from './auth.guard';
+import { LoginGuard } from './login.guard';
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   {
     path: '',
     component: MainLayoutComponent,
+    canActivate: [AuthGuard],
     children: [
       { path: 'employee-profiles', component: EmployeeProfilesComponent },
       { path: 'employee-profiles/:id', component: EmployeeProfileDetailComponent },
       { path: 'visa-status-management', component: VisaStatusManagementComponent },
       { path: 'hiring-management', component: HiringManagementComponent },
       { path: 'housing-management', component: HousingManagementComponent },
-      { path: '**', redirectTo: '/login' }
+      { path: 'housing-detail/:id', component: HousingDetailComponent },
     ]
   },
   {
     path: '',
     component: NoNavbarLayoutComponent,
     children: [
-      { path: 'login', component: LoginComponent },
-      { path: 'onboarding-employee-profile/:userId', component: OnboardingEmployeeProfileComponent },
-      { path: 'onboarding-applications', component: OnboardingApplicationComponent },
-      { path: 'onboarding-employee-approved-profile/:userId', component: OnboardingEmployeeApprovedProfileComponent },
-      { path: 'onboarding-employee-rejected-profile/:userId', component: OnboardingEmployeeRejectedProfileComponent },
-      { path: 'housing-detail/:id', component: HousingDetailComponent },
+      { path: 'onboarding-employee-profile/:userId', component: OnboardingEmployeeProfileComponent, canActivate: [AuthGuard] },
+      { path: 'onboarding-applications', component: OnboardingApplicationComponent, canActivate: [AuthGuard] },
+      { path: 'onboarding-employee-approved-profile/:userId', component: OnboardingEmployeeApprovedProfileComponent, canActivate: [AuthGuard] },
+      { path: 'onboarding-employee-rejected-profile/:userId', component: OnboardingEmployeeRejectedProfileComponent, canActivate: [AuthGuard]},
+      { path: 'login', component: LoginComponent,canActivate: [LoginGuard] },
     ]
-  }
+  },
+  { path: '**', redirectTo: '/login' }
+
 ];
 
 @NgModule({
