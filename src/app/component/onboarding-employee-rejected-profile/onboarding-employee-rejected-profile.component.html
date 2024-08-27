@@ -62,14 +62,16 @@
         <strong>End Date:</strong> {{ employee.citizenship?.endDate | date }}
       </p>
       <p>
-        <strong>OPT Document:</strong>
+        <!-- <strong>OPT Document:</strong>
         {{ employee.citizenship?.optDocument || "N/A" }}
-      </p>
+      </p> -->
       <button
+      mat-raised-button
         *ngIf="getDocumentUrl('optReceipt')"
         (click)="previewDocument('optReceipt')"
+        color="primary"
       >
-        Preview
+        F1 OPT Doc
       </button>
     </mat-card>
 
@@ -79,8 +81,8 @@
         License Number: {{ employee.driverLicense.licenseNumber || "N/A" }},
         Expiration Date: {{ employee.driverLicense.expirationDate | date }}
       </p>
-      <button *ngIf="driverLicenseUrl" (click)="openDriverLicense()">
-        Driver License
+      <button mat-raised-button *ngIf="driverLicenseUrl" (click)="openDriverLicense()" color="primary">
+        Driver License Doc
       </button>
     </mat-card>
 
