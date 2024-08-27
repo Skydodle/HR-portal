@@ -23,8 +23,8 @@ export class HrhousingService {
     return this.http.get<House[]>(`${this.baseUrl}/getAll`);
   }
 
-  getHouseDetails(id: string) {
-    return this.http.get(`${this.baseUrl}/${id}`);
+  getHouseDetails(id: string): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/${id}`);
   }
 
   updateFacilityReportStatus(id: string, status: string) {
