@@ -49,7 +49,18 @@ export class OnboardingService {
       catchError(this.handleError)
     );
   }
+  
+  getFileUrl(documentName: string): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
 
+    const body = { documentName };
+
+    return this.http.put(`${this.baseUrl}/employee/info/url`, body, { headers }).pipe(
+      catchError(this.handleError)
+    );
+  }
   private handleError(error: any) {
     console.error('An error occurred:', error);
     return throwError(() => new Error('Failed to fetch employees, please try again later.'));
