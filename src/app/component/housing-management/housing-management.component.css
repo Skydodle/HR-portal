@@ -1,0 +1,10 @@
+mat-form-field {
+  display: block;
+}
+.form {
+  max-width: 40rem;
+  width: 80%;
+}
+.page {
+  padding: 2rem;
+}
