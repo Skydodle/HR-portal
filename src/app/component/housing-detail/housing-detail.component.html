@@ -12,6 +12,7 @@
     </ul>
     
     <h3>Residents</h3>
+    <div *ngIf="houseDetails.residents.length === 0">No Residents Here</div>
     <ul>
       <li *ngFor="let resident of houseDetails.residents">
         {{ resident.firstName }} {{ resident.middleName }} {{ resident.lastName }} - {{ resident.phoneNumber }} - {{ resident.email }}
