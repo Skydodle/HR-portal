@@ -1,1 +1,25 @@
-<p>housing-detail works!</p>
+<div *ngIf="houseDetails">
+    <h2>House Details</h2>
+    <p><strong>Landlord:</strong> {{ houseDetails.landlord.fullName }}</p>
+    <p><strong>Address:</strong> {{ houseDetails.address }}</p>
+    
+    <h3>Facility Information</h3>
+    <ul>
+      <li>Beds: {{ houseDetails.facilityInformation.beds }}</li>
+      <li>Mattresses: {{ houseDetails.facilityInformation.mattresses }}</li>
+      <li>Tables: {{ houseDetails.facilityInformation.tables }}</li>
+      <li>Chairs: {{ houseDetails.facilityInformation.chairs }}</li>
+    </ul>
+    
+    <h3>Residents</h3>
+    <ul>
+      <li *ngFor="let resident of houseDetails.residents">
+        {{ resident.firstName }} {{ resident.middleName }} {{ resident.lastName }} - {{ resident.phoneNumber }} - {{ resident.email }}
+        <br />
+        Car: {{ resident.car.make }} {{ resident.car.model }} ({{ resident.car.color }})
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="!houseDetails">
+    Loading...
+  </div>
