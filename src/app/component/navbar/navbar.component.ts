@@ -11,5 +11,8 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  logout(): void {
+    // Placeholder function for now
+    console.log('Logout clicked');
+  }
 }
