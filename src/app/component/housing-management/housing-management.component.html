@@ -1,47 +1,112 @@
-<h1>Housing Management page</h1>
-<app-housing-summary [houses]="houses" (deleteHouseEvent)="deleteHouse($event)"></app-housing-summary>
+<div class="page">
+  <h1>Housing Management page</h1>
+  <app-housing-summary
+    [houses]="houses"
+    (deleteHouseEvent)="deleteHouse($event)"
+  ></app-housing-summary>
 
-<h1>Adding Houses</h1>
-<form (ngSubmit)="addHouse()">
-    <div>
-      <label for="address">Address:</label>
-      <input type="text" id="address" [(ngModel)]="newHouse.address" name="address" required>
-    </div>
-  
-    <div>
-      <label for="fullName">Landlord Full Name:</label>
-      <input type="text" id="fullName" [(ngModel)]="newHouse.landlord.fullName" name="fullName" required>
-    </div>
-  
-    <div>
-      <label for="phoneNumber">Landlord Phone Number:</label>
-      <input type="text" id="phoneNumber" [(ngModel)]="newHouse.landlord.phoneNumber" name="phoneNumber" required>
-    </div>
-  
-    <div>
-      <label for="email">Landlord Email:</label>
-      <input type="email" id="email" [(ngModel)]="newHouse.landlord.email" name="email" required>
-    </div>
-  
-    <div>
-      <label for="beds">Beds:</label>
-      <input type="number" id="beds" [(ngModel)]="newHouse.facilityInformation.beds" name="beds" required min="0">
-    </div>
-  
-    <div>
-      <label for="mattresses">Mattresses:</label>
-      <input type="number" id="mattresses" [(ngModel)]="newHouse.facilityInformation.mattresses" name="mattresses" required min="0">
-    </div>
-  
-    <div>
-      <label for="tables">Tables:</label>
-      <input type="number" id="tables" [(ngModel)]="newHouse.facilityInformation.tables" name="tables" required min="0">
-    </div>
-  
-    <div>
-      <label for="chairs">Chairs:</label>
-      <input type="number" id="chairs" [(ngModel)]="newHouse.facilityInformation.chairs" name="chairs" required min="0">
-    </div>
-  
-    <button type="submit">Add House</button>
-</form>
+  <h2>Adding Houses</h2>
+  <form (ngSubmit)="addHouse()" class="form">
+    <mat-form-field>
+      <mat-label for="address">Address:</mat-label>
+      <input
+        matInput
+        type="text"
+        id="address"
+        [(ngModel)]="newHouse.address"
+        name="address"
+        required
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label for="fullName">Landlord Full Name:</mat-label>
+      <input
+        matInput
+        type="text"
+        id="fullName"
+        [(ngModel)]="newHouse.landlord.fullName"
+        name="fullName"
+        required
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label for="phoneNumber">Landlord Phone Number:</mat-label>
+      <input
+        matInput
+        type="text"
+        id="phoneNumber"
+        [(ngModel)]="newHouse.landlord.phoneNumber"
+        name="phoneNumber"
+        required
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label for="email">Landlord Email:</mat-label>
+      <input
+        matInput
+        type="email"
+        id="email"
+        [(ngModel)]="newHouse.landlord.email"
+        name="email"
+        required
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label for="beds">Beds:</mat-label>
+      <input
+        matInput
+        type="number"
+        id="beds"
+        [(ngModel)]="newHouse.facilityInformation.beds"
+        name="beds"
+        required
+        min="0"
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label for="mattresses">Mattresses:</mat-label>
+      <input
+        matInput
+        type="number"
+        id="mattresses"
+        [(ngModel)]="newHouse.facilityInformation.mattresses"
+        name="mattresses"
+        required
+        min="0"
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label for="tables">Tables:</mat-label>
+      <input
+        matInput
+        type="number"
+        id="tables"
+        [(ngModel)]="newHouse.facilityInformation.tables"
+        name="tables"
+        required
+        min="0"
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label for="chairs">Chairs:</mat-label>
+      <input
+        matInput
+        type="number"
+        id="chairs"
+        [(ngModel)]="newHouse.facilityInformation.chairs"
+        name="chairs"
+        required
+        min="0"
+      />
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">Add House</button>
+  </form>
+</div>
